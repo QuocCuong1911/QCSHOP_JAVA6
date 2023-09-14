@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+	<main>
+		<div class="small-container_ds prd_dt">
+			<div class="row_ds">
+				<div class="col-2_ds">
+					<img th:src="@{|/static/img/product_img/${productsDetail.photo}|}"
+						width="100%" alt="">
+				</div>
+				<div class="col-2_ds">
+					<h2>[[${productsDetail.productName}]]</h2>
+					<h4
+						th:text="${#strings.replace(#numbers.formatDecimal(productsDetail.price, 0, 'COMMA', 2, 'POINT'), '.00', 'đ')}"></h4>
+					<h5>Số lượng</h5>
+					<select name="" id="">
+						<option value="">1</option>
+						<option value="">1</option>
+						<option value="">1</option>
+						<option value="">1</option>
+						<option value="">1</option>
+					</select> <input type="number" value="1"> <a href="#" style="text-decoration: none;" class="btn_ds">Thêm
+						vào giỏ hàng</a>
+					<h3>Thông tin sản phẩm</h3>
+					<p>Qua những lần chạm đầu tiên trên chiếc Reno8 T 5G thì mình
+						thấy đây là một chiếc điện thoại có độ hoàn thiện khá tốt, máy
+						mang lại cho mình một cảm giác cầm nắm tương đối là đầm tay, hai
+						bên cạnh cũng được làm bo cong giúp hạn chế tình trạng cấn tay
+						mang đến cho mình một trải nghiệm sử dụng khá là thoải mái.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="small-container_ds">
+			<div class="row_ds">
+				<div th:each="pr : ${listProductsRelated}" class="col-4_ds">
+					<a class="no-underline" style="text-decoration: none; color: #555;"
+						th:href="@{|/product/detail/${pr.productId}|}"> <img
+						th:href="@{|/product/detail/${pr.productId}|}"
+						th:src="@{|/static/img/product_img/${pr.photo}|}" alt="">
+						<h4>[[${pr.productName}]]</h4>
+						<div class="rating">
+							<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</div> <span th:text="${#strings.replace(#numbers.formatDecimal(pr.price, 0, 'COMMA', 2, 'POINT'), '.00', 'đ')}"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>

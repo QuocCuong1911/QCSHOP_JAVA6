@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<main>
+
+		<div class="small-container_ds">
+
+			<div class="row_ds">
+				<div th:each="pr : ${listProductsCate}" class="col-4_ds">
+					<a class="no-underline" style="text-decoration: none; color: #555;"
+						th:href="@{|/product/detail/${pr.productId}|}"> <img
+							th:src="@{|/static/img/product_img/${pr.photo}|}" alt="">
+						<h4>[[${pr.productName}]]</h4>
+						<div class="rating">
+							<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</div>
+						<!-- <span th:text="${#numbers.formatDecimal(pr.price, 0, 'COMMA', 2, 'POINT')} + 'đ'"></span> -->
+						<span
+							th:text="${#strings.replace(#numbers.formatDecimal(pr.price, 0, 'COMMA', 2, 'POINT'), '.00', 'đ')}"></span>
+					</a>
+				</div>
+
+			</div>
+		</div>
+
+	<!-- 	<div th:if="${totalPage > 1}">
+			<div class=" m-auto row col-sm-10">
+				
+				<div class="col-sm-1">
+					<span th:each="i: ${#numbers.sequence(1, totalPage)}">
+						<a th:if="${currentPage != i }" th:href="@{|/products/listcate/${cateId}/${i}|}">[[${i}]]</a>
+						<span th:unless="${currentPage != i}">[[${i}]]</span> &nbsp; &nbsp;
+					</span>
+				</div>
+
+				<div class="col-sm-1">
+					<a th:if="${currentPage < totalPage }" th:href="@{|/products/listcate/${cateId}/${currentPage + 1}|}">Next</a>
+					<span th:unless="${currentPage < totalPage }">Next</span>
+				</div>
+
+				<div class="col-sm-1">
+					<a th:if="${currentPage < totalPage }" th:href="@{|/products/listcate/${cateId}/${totalPage}|}">Last</a>
+					<span th:unless="${currentPage < totalPage }">Last</span>
+				</div>
+			</div>
+		</div> -->
+
+		<div th:if="${totalPage > 1}" class="pagination_bar">
+			<div class="pagination">
+				<button class="btn1" 
+				onclick="backBtn()"> <i class="fa-solid fa-arrow-left"></i>Prev</button>
+				<ul class="number_page">
+					<span th:each="i: ${#numbers.sequence(1, totalPage)}">
+						<a class="link" th:if="${currentPage != i }" th:value="${i}" th:href="@{|/products/listcate/${cateId}/${i}|}">
+							<li onclick="activeLink()">[[${i}]]</li>
+							</a>
+						<li class="link active" th:unless="${currentPage != i}">[[${i}]]</li> 
+					</span>
+				</ul>
+				<button class="btn2" onclick="nextBtn()"> Next <i class="fa-solid fa-arrow-right"></i> </button>
+			</div>
+		</div>
+	
+	</main>
+</body>
+
+</html>

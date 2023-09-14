@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<main>
+		<!-- sản phẩm -->
+		<div class="small-container_ds">
+			<h2 class="title_products">Sản phẩm</h2>
+			<div class="row_ds">
+
+				<div th:each="pr : ${listProductDT}" class="col-4_ds">
+					<a class="no-underline" style="text-decoration: none; color: #555;"
+						th:href="@{|/product/detail/${pr.productId}|}"> 
+                        <img th:src="@{|/static/img/product_img/${pr.photo}|}" alt="">
+						<h4>[[${pr.productName}]]</h4>
+						<div class="rating">
+							<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</div> 
+						<!-- <span th:text="${#numbers.formatDecimal(pr.price, 0, 'COMMA', 2, 'POINT')} + 'đ'"></span> -->
+						<span th:text="${#strings.replace(#numbers.formatDecimal(pr.price, 0, 'COMMA', 2, 'POINT'), '.00', 'đ')}"></span>
+					</a>
+				</div>
+
+			</div>
+
+			<h2 class="title_products">Laptop</h2>
+			<div class="row_ds">
+				<div th:each="pr : ${listProductLT}" class="col-4_ds">
+                    <a class="no-underline" style="text-decoration: none; color: #555;"
+						th:href="@{|/product/detail/${pr.productId}|}"> 
+					<img th:href="@{|/product/detail/${pr.productId}|}"
+						th:src="@{|/static/img/product_img/${pr.photo}|}" alt="">
+					<h4>[[${pr.productName}]]</h4>
+					<div class="rating">
+						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+						<i class="fa-regular fa-star"></i>
+					</div>
+
+					<span th:text="${#strings.replace(#numbers.formatDecimal(pr.price, 0, 'COMMA', 2, 'POINT'), '.00', 'đ')}"></span>
+                    </a>
+				</div>
+
+			</div>
+
+			<h2 class="title_products">Phụ Kiện</h2>
+			<div class="row_ds">
+				<div th:each="pr : ${listProductPK}" class="col-4_ds">
+                    <a class="no-underline" style="text-decoration: none; color: #555;"
+						th:href="@{|/product/detail/${pr.productId}|}"> 
+					<img th:href="@{|/product/detail/${pr.productId}|}"
+						th:src="@{|/static/img/product_img/${pr.photo}|}" alt="">
+					<h4>[[${pr.productName}]]</h4>
+					<div class="rating">
+						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+						<i class="fa-regular fa-star"></i>
+					</div>
+
+					<span th:text="${#strings.replace(#numbers.formatDecimal(pr.price, 0, 'COMMA', 2, 'POINT'), '.00', 'đ')}"></span>
+                    </a>
+				</div>
+
+			</div>
+		</div>
+		<!-- offer -->
+		<div class="offer">
+			<div class="small-container_ds">
+				<div class="row_ds">
+					<div>
+						<div class="col-2_ds">
+							<img th:src="@{|/static/img/web_img/offer.png|}"
+								class="offer-image" alt="">
+						</div>
+						<div class="info_offer">
+							<p>ASUS TUF GAMING B660M-PLUS WIFI DDR4</p>
+							<h1>Platinum Pro v2 Gaming PC</h1>
+							<small> Nếu bạn đang tìm cho mình cấu hình PC Gaming hoạt
+								động ổn định, chơi tốt mọi tựa game ở chế độ "Max Setting" có
+								trên thị trường thì GVN POSEIDON 5 i3060 sẽ là một trong những
+								bộ máy chơi game cấu hình vượt trội mà bạn không nên bỏ qua.
+								ASUS TUF GAMING B660M-PLUS WIFI DDR4 là dòng bo mạch chủ nhà
+								ASUS thuộc series TUF Gaming dành cho những bộ máy gaming. Cùng
+								những hiệu năng mà dòng main B660 mang lại là sự bền vững và
+								tính ổn định. Đây sẽ là một trong những linh kiện PC khi bạn
+								muốn xây dựng lại dàn PC. </small> <a href="#" class="btn_ds">Buy
+								Now</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- comment -->
+		<div class="comment_ds">
+			<div class="small-container_ds">
+				<div class="row_ds">
+					<div class="col-3_ds">
+						<i class="fa-solid fa-quote-left"></i>
+						<p>Ngày xưa, để tạo web tương thích với mobile và desktop các
+							developer sử dụng browsers user-agent để kiểm tra loại device.</p>
+						<i class="fa-solid fa-quote-right"></i>
+						<div class="rating">
+							<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</div>
+						<img th:src="@{|/static/img/web_img/user_1.png|}" alt="">
+						<h3>BaoBao</h3>
+					</div>
+
+					<div class="col-3_ds">
+						<i class="fa-solid fa-quote-left"></i>
+						<p>Khi làm responsive design, mặc định bootstrap đã hỗ trợ rất
+							nhiều, nhưng đôi khi có nhiều chổ chúng ta cần phải custom.</p>
+						<i class="fa-solid fa-quote-right"></i>
+						<div class="rating">
+							<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</div>
+						<img th:src="@{|/static/img/web_img/user_2.png|}" alt="">
+						<h3>CryCat</h3>
+					</div>
+
+					<div class="col-3_ds">
+						<i class="fa-solid fa-quote-left"></i>
+						<p>Khi CSS3 phát triển mạnh, việc làm responsive đơn giản hơn.
+							Việc canh chỉnh layout có thể được hỗ trợ hoàn toàn bởi CSS.</p>
+						<i class="fa-solid fa-quote-right"></i>
+						<div class="rating">
+							<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</div>
+						<img th:src="@{|/static/img/web_img/user_3.png|}" alt="">
+						<h3>ThucTapSinh</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

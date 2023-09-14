@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" th:fragment="dynamic(main)">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QCShop - Mua sắm online trực tuyến</title>
+
+<link rel="icon" type="image/x-icon"
+	href="/static/img/web_img/iconweb.png">
+<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/narbar.css">
+<link rel="stylesheet" href="/static/css/nav_style.css">
+<link rel="stylesheet" href="/static/css/pagination_bar.css">
+
+<link rel="stylesheet" href="/static/js/index.js">
+<link rel="stylesheet" href="/static/js/login.js">
+<link rel="stylesheet" href="/static/js/pagination.js">
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+	integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"> -->
+<script
+	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+	integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+	integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+	crossorigin="anonymous"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+</head>
+
+<body>
+	<div class="header_ds">
+		<div class="container_ds">
+			<!-- navbar -->
+			<div class="header_nav ">
+				<img id="logo_shop" class="logo_shop"
+					src="/static/img/web_img/Web_Logo.png" alt="" width="250px">
+
+
+
+			</div>
+			<!-- banner -->
+			<div class="row_ds">
+				<div class="col-2_ds">
+					<h1>
+						Đem đến cho bạn<br>Chất Lượng - Uy Tín
+					</h1>
+					<p>The saung, also known as the saung-gauk or the Burmese harp,
+						is an arched harp used in traditional Burmese music. It is
+						regarded as the national musical instrument of Myanmar.</p>
+
+					<a href="" class="btn_ds">Khám phá ngay &#8594</a>
+				</div>
+				<div class="col-2_ds">
+					<img src="/static/img/web_img/bannerQCshop.png" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="slide_show row ps-lg-5 ps-md-3 ps-sm-1">
+		<div
+			class="slide_show_1 col-5 m-auto ms-lg-5 ms-md-3 ms-sm-1 me-lg-5 me-md-3 me-sm-1">
+			<div id="carouselExampleAutoplaying" class="carousel slide "
+				data-bs-ride="carousel" data-bs-interval="3000">
+				<div class="carousel-inner rounded-4">
+					<div class="carousel-item active">
+						<img src="/static/img/web_img/slide_1.png" class="d-block w-100"
+							alt="...">
+					</div>
+					<div class="carousel-item">
+						<img src="/static/img/web_img/slide_2.png" class="d-block w-100"
+							alt="...">
+					</div>
+					<div class="carousel-item">
+						<img src="/static/img/web_img/slide_3.png" class="d-block w-100"
+							alt="...">
+					</div>
+				</div>
+				<button class="carousel-control-prev" type="button"
+					data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button"
+					data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
+			</div>
+		</div>
+		<div class="slide_show_2 col-5 ms-lg-5 ms-md-3 ms-sm-1">
+			<div id="carouselExampleAutoplaying2" class="carousel slide "
+				data-bs-ride="carousel" data-bs-interval="3000">
+				<div class="carousel-inner rounded-4">
+					<div class="carousel-item active">
+						<img src="/static/img/web_img/slide_4.png" class="d-block w-100"
+							alt="...">
+					</div>
+					<div class="carousel-item">
+						<img src="/static/img/web_img/slide_5.png" class="d-block w-100"
+							alt="...">
+					</div>
+					<div class="carousel-item">
+						<img src="/static/img/web_img/slide_6.png" class="d-block w-100"
+							alt="...">
+					</div>
+				</div>
+				<button class="carousel-control-prev" type="button"
+					data-bs-target="#carouselExampleAutoplaying2" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button"
+					data-bs-target="#carouselExampleAutoplaying2" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- <article></article> -->
+	<div class="row">
+
+		<article class="col-sm-9 m-0 p-0">
+			<!-- sản phẩm -->
+			<nav>
+				<div th:replace="/layout/menu.html"></div>
+
+			</nav>
+			<div th:replace="${main}"></div>
+		</article>
+
+		<!-- <aside></aside> -->
+		<aside class="col-sm-3 bg-info-subtle m-0 p-0">
+			<div th:replace="/layout/cart-info.html"></div>
+			<div th:replace="/layout/category.html"></div>
+			<!-- <div class="login_form">
+                <div class="form_btn">
+                    <span onclick="login()">Login</span>
+                    <span onclick="signup()">Sign Up</span>
+                    <hr id="Indicator">
+                </div>
+
+                <form id="loginID">
+                    <input type="text" placeholder="Tài khoản">
+                    <input type="password" placeholder="password">
+                    <button type="submit" class="btn_ds">Login</button>
+                    <a href="#">Quên mật khẩu</a>
+                </form>
+
+                <form id="SignupID">
+                    <input type="text" placeholder="Tài khoản">
+                    <input type="email" placeholder="Email">
+                    <input type="password" placeholder="Nhập mật khẩu">
+                    <input type="password" placeholder="Xác nhận mật khẩu">
+                    <button type="submit" class="btn_ds">Sign Up</button>
+
+                </form>
+            </div> -->
+
+
+		</aside>
+
+
+	</div>
+	<!-- <footer></footer> -->
+	<footer class="row"> </footer>
+
+</body>
+
+</html>
