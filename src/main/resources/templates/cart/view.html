@@ -1,12 +1,73 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org/" th:replace = "~{/layout/index :: dynamic(~{::main})}">
+<html xmlns:th="https://www.thymeleaf.org/"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<main>
-    <h1>view cart</h1>
-</main>
+	<main>
+		<main>
+			<div class="small-container cart-page">
+				<table>
+					<tr>
+						<th>Product</th>
+						<th>Quantity</th>
+						<th>Subtotal</th>
+					</tr>
+					<tr ng-repeat="pr in cart.items_list">
+						<!-- id sản phẩm -->
+						<td class="product-id">{{pr.productId}}</td>
+						<td>
+							<div class="cart-info">
+								<!-- ảnh sp -->
+								<img th:src="@{|/static/img/product_img/{{pr.photo}}|}" alt="">
+								<div>
+									<!-- tên sp -->
+									<p>{{pr.productName}}</p>
+									<!-- giá sp -->
+									<p class="format-price">Price: {{pr.price}}</p>
+					
+									<!-- xóa -->
+									<a ng-click="cart.remove(pr.productId)" href="">Remove</a>
+								</div>
+
+							</div>
+						</td>
+						<!-- số lương -->
+						<td><input ng-change ="cart.saveToLocalStorage();" ng-model="pr.qty" type="number" min="1"></td>
+						<!-- thành tiền -->
+						<td><p class="priceconvert">{{cart.convertToVND(pr.qty*pr.price)}}</p></td>
+					</tr>
+				</table>
+
+				<div class="total-price">
+
+					<table>
+						<tr>
+							<td>Subtotal</td>
+							<td><p class="">{{cart.convertToVND(cart.getAmount())}}</p></td>
+						</tr>
+						<tr>
+							<td>Tax</td>
+							<td>$0.00</td>
+						</tr>
+						<tr>
+							<td>Total</td>
+							<td id="ttp">{{cart.convertToVND(cart.getAmount())}}</td>
+						</tr>
+						<tr>
+							<td><button ng-click="cart.clear()" class="btn btn-warning">
+									<i class="fa-solid fa-delete-left"></i> Clear
+								</button></td>
+							<td><button th:src="@{/order/checkout}" class="btn btn-success">
+									<i class="fa-solid fa-money-check-dollar"></i> Checkout
+								</button></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</main>
+	</main>
 </body>
 </html>

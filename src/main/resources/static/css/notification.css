@@ -1,0 +1,111 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+} */
+
+.notification{
+    position: fixed;
+    z-index: 9999;
+    top: 25px;
+    right: 30px;
+    border-radius: 12px;
+    background: #fff;
+    padding: 20px 35px 20px 25px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid rgb(110, 235, 15);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(calc(100% + 30px));
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+}
+
+.notification.active{
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+.notification .notification-content{
+    display: flex;
+    align-items: center;
+}
+
+.notification-content .check{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+    background-color: rgb(110, 235, 15);
+    color: #fff;
+    font-size: 20px;
+    border-radius: 50%;
+}
+
+.notification-content .message{
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.message .text{
+    font-size: 20px;
+    font-weight: 400;
+    color: #666666;
+}
+.message .text.text-1{
+    font-weight: 600;
+    color: #333;
+}
+
+.notification .close{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    padding: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.notification .close:hover{
+    opacity: 1;
+}
+
+.notification .progress{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: #ddd;
+}
+
+
+.notification .progress:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    width: 100%;
+    background-color: rgb(110, 235, 15);
+}
+
+@keyframes progress {
+    100%{
+        right: 100%;
+    }
+}
+.progress.active:before{
+    animation: progress 3s linear forwards;
+}
+

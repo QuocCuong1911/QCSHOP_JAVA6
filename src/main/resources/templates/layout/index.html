@@ -2,49 +2,41 @@
 <html xmlns:th="https://www.thymeleaf.org/" th:fragment="dynamic(main)">
 
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QCShop - Mua sắm online trực tuyến</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>QCShop - Mua sắm online trực tuyến</title>
 
-<link rel="icon" type="image/x-icon"
-	href="/static/img/web_img/iconweb.png">
-<link rel="stylesheet" type="text/css" href="/static/css/style.css">
-<link rel="stylesheet" href="/static/css/narbar.css">
-<link rel="stylesheet" href="/static/css/nav_style.css">
-<link rel="stylesheet" href="/static/css/pagination_bar.css">
-
-<link rel="stylesheet" href="/static/js/index.js">
-<link rel="stylesheet" href="/static/js/login.js">
-<link rel="stylesheet" href="/static/js/pagination.js">
-
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-	integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-	crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"> -->
-<script
-	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-	integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-	crossorigin="anonymous"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-	integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
-	crossorigin="anonymous"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+	<link rel="icon" type="image/x-icon" href="/static/img/web_img/iconweb.png">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+	<link rel="stylesheet" href="/static/css/narbar.css">
+	<link rel="stylesheet" href="/static/css/nav.css">
+	<link rel="stylesheet" href="/static/css/pagination_bar.css">
+	<link rel="stylesheet" href="/static/css/notification.css">
+	<link rel="stylesheet" href="/static/css/footer.css">
+	<link rel="stylesheet" href="/static/css/shoppingcart.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+		integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"> -->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+		integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+		integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+		crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 
-<body>
+<body ng-app="app" ng-controller="ctrl">
 	<div class="header_ds">
 		<div class="container_ds">
 			<!-- navbar -->
 			<div class="header_nav ">
-				<img id="logo_shop" class="logo_shop"
-					src="/static/img/web_img/Web_Logo.png" alt="" width="250px">
+				<img id="logo_shop" class="logo_shop" src="/static/img/web_img/Web_Logo.png" alt="" width="250px">
 
 
 
@@ -69,60 +61,53 @@
 	</div>
 
 	<div class="slide_show row ps-lg-5 ps-md-3 ps-sm-1">
-		<div
-			class="slide_show_1 col-5 m-auto ms-lg-5 ms-md-3 ms-sm-1 me-lg-5 me-md-3 me-sm-1">
-			<div id="carouselExampleAutoplaying" class="carousel slide "
-				data-bs-ride="carousel" data-bs-interval="3000">
+		<div class="slide_show_1 col-5 m-auto ms-lg-5 ms-md-3 ms-sm-1 me-lg-5 me-md-3 me-sm-1">
+			<div id="carouselExampleAutoplaying" class="carousel slide " data-bs-ride="carousel"
+				data-bs-interval="3000">
 				<div class="carousel-inner rounded-4">
 					<div class="carousel-item active">
-						<img src="/static/img/web_img/slide_1.png" class="d-block w-100"
-							alt="...">
+						<img src="/static/img/web_img/slide_1.png" class="d-block w-100" alt="...">
 					</div>
 					<div class="carousel-item">
-						<img src="/static/img/web_img/slide_2.png" class="d-block w-100"
-							alt="...">
+						<img src="/static/img/web_img/slide_2.png" class="d-block w-100" alt="...">
 					</div>
 					<div class="carousel-item">
-						<img src="/static/img/web_img/slide_3.png" class="d-block w-100"
-							alt="...">
+						<img src="/static/img/web_img/slide_3.png" class="d-block w-100" alt="...">
 					</div>
 				</div>
-				<button class="carousel-control-prev" type="button"
-					data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+					data-bs-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 					<span class="visually-hidden">Previous</span>
 				</button>
-				<button class="carousel-control-next" type="button"
-					data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+					data-bs-slide="next">
 					<span class="carousel-control-next-icon" aria-hidden="true"></span>
 					<span class="visually-hidden">Next</span>
 				</button>
 			</div>
 		</div>
 		<div class="slide_show_2 col-5 ms-lg-5 ms-md-3 ms-sm-1">
-			<div id="carouselExampleAutoplaying2" class="carousel slide "
-				data-bs-ride="carousel" data-bs-interval="3000">
+			<div id="carouselExampleAutoplaying2" class="carousel slide " data-bs-ride="carousel"
+				data-bs-interval="3000">
 				<div class="carousel-inner rounded-4">
 					<div class="carousel-item active">
-						<img src="/static/img/web_img/slide_4.png" class="d-block w-100"
-							alt="...">
+						<img src="/static/img/web_img/slide_4.png" class="d-block w-100" alt="...">
 					</div>
 					<div class="carousel-item">
-						<img src="/static/img/web_img/slide_5.png" class="d-block w-100"
-							alt="...">
+						<img src="/static/img/web_img/slide_5.png" class="d-block w-100" alt="...">
 					</div>
 					<div class="carousel-item">
-						<img src="/static/img/web_img/slide_6.png" class="d-block w-100"
-							alt="...">
+						<img src="/static/img/web_img/slide_6.png" class="d-block w-100" alt="...">
 					</div>
 				</div>
-				<button class="carousel-control-prev" type="button"
-					data-bs-target="#carouselExampleAutoplaying2" data-bs-slide="prev">
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying2"
+					data-bs-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 					<span class="visually-hidden">Previous</span>
 				</button>
-				<button class="carousel-control-next" type="button"
-					data-bs-target="#carouselExampleAutoplaying2" data-bs-slide="next">
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying2"
+					data-bs-slide="next">
 					<span class="carousel-control-next-icon" aria-hidden="true"></span>
 					<span class="visually-hidden">Next</span>
 				</button>
@@ -137,14 +122,13 @@
 			<!-- sản phẩm -->
 			<nav>
 				<div th:replace="/layout/menu.html"></div>
-
 			</nav>
 			<div th:replace="${main}"></div>
 		</article>
 
 		<!-- <aside></aside> -->
-		<aside class="col-sm-3 bg-info-subtle m-0 p-0">
-			<div th:replace="/layout/cart-info.html"></div>
+		<aside class="col-sm-3 bg-info-subtle m-0 p-0 ">
+
 			<div th:replace="/layout/category.html"></div>
 			<!-- <div class="login_form">
                 <div class="form_btn">
@@ -176,8 +160,105 @@
 
 	</div>
 	<!-- <footer></footer> -->
-	<footer class="row"> </footer>
+	<footer class="footer-ds">
+		<div th:replace="/layout/footer.html"></div>
+	</footer>
 
+	<script>
+
+		let host = "http://localhost:8080/product/pagination/"
+		var app = angular.module("app", []);
+
+		app.controller("ctrl", function ($scope, $http, $location) {
+
+			$scope.cart = {
+				items_list: [],
+
+				initialize() {
+					// Kiểm tra xem có dữ liệu trong localStorage không
+					const storedData = localStorage.getItem("cart");
+					if (storedData) {
+						this.items_list = JSON.parse(storedData);
+					}
+				},
+
+				add(id) {
+					console.log(id)
+					var item = this.items_list.find(item => item.id == id);
+					if (item) {
+						item.qty++;
+						this.saveToLocalStorage();
+					} else {
+						$http.get(`/rest/products/${id}`).then(resp => {
+							resp.data.qty = 1;
+							/* console.log("RESP: " + JSON.stringify(resp.data)) */
+							this.items_list.push(resp.data);
+							this.saveToLocalStorage();
+							console.log("items_list check 1 : " + $scope.cart.items_list.length)
+
+						})
+					}
+					console.log("items_list check 2 : " + $scope.cart.items_list.length)
+
+				},
+
+				saveToLocalStorage() {
+					var json = JSON.stringify(angular.copy(this.items_list));
+					localStorage.setItem("cart", json);
+					// console.log("JSON: " + json)
+				},
+
+				getCount() {
+					var count = this.items_list.map(item => item.qty).reduce((total, qty) => total += qty, 0);
+					// console.log(count);
+					return count;
+				},
+
+				getAmount() {
+					return this.items_list.map(item => item.qty * item.price).reduce((total, qty) => total += qty, 0)
+
+				},
+
+				convertToVND(value) {
+					// Kiểm tra xem value có phải là số không
+					if (isNaN(value)) {
+						return "Không hợp lệ"; // Hoặc bạn có thể trả về giá trị mặc định khác nếu cần
+					}
+					// Sử dụng hàm toLocaleString để định dạng giá trị thành tiền tệ Việt Nam
+					return value.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+				},
+
+				remove(id) {
+					
+					var index = this.items_list.findIndex(item => item.productId == id.trim());
+
+					if (index !== -1) {
+						const removedItem = this.items_list[index]; // Lưu sản phẩm vào biến tạm thời
+						this.items_list.splice(index, 1); // Xóa sản phẩm khỏi mảng
+						this.saveToLocalStorage();
+					} else {
+						console.log("Item not found for removal.");
+					}
+				},
+
+				clear() {
+					this.items_list = [];
+					this.saveToLocalStorage();
+				}
+			}
+
+			$scope.cart.initialize();
+
+
+		})
+
+	</script>
+	<script src="/static/js/index.js"></script>
+	<script src="/static/js/login.js"></script>
+	<script src="/static/js/pagination.js"></script>
+	<script src="/static/js/notification.js"></script>
+	<script src="/static/js/formatprice.js"></script>
+	<!-- <script src="/static/js/app_1.js"></script> -->
 </body>
 
 </html>

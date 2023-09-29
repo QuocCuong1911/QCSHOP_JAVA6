@@ -1,0 +1,58 @@
+.nav_links {
+	display: flex; /* Sử dụng flexbox để căn giữa các mục */
+	justify-content: center; /* Căn giữa theo chiều ngang */
+	padding: 0; /* Xóa khoảng trắng xung quanh danh sách */
+	list-style-type: none; /* Ẩn dấu hiệu danh sách (dấu hiệu mặc định) */
+}
+
+.nav_links li {
+	display: inline-block;
+	margin: 0 10px;
+	position: relative;
+}
+
+/* Thiết lập phần tử con hiển thị con số */
+.nav_links li .cart_count {
+	position: absolute;
+	top: -15px;
+	right: -5px;
+	background-color: red;
+	/* Màu nền của con số */
+	color: white;
+	/* Màu văn bản của con số */
+	border-radius: 50%;
+	/* Để làm cho con số trở thành hình tròn */
+	padding: 1px 10px;
+	/* Để định dạng kích thước và khoảng cách từ viền */
+}
+
+/* category css */
+.list-group {
+	position: relative;
+
+}
+
+.list-group li {
+	transition: 0.30s;
+}
+
+
+.list-group li:hover {
+	background: #ff523b;
+	color: aliceblue;
+	transform: translate(-10px);
+
+}
+
+.list-group li:hover a {
+	background: #ff523b;
+	color: aliceblue;
+	transform: translate(-10px);
+
+}
+
+.list-group li a {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: black;
+}

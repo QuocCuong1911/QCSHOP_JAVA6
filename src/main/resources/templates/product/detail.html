@@ -9,6 +9,21 @@
 
 <body>
 	<main>
+	<!-- đoạn mã không hoạt động vì js không hoạt động -->
+	<!-- notification -->
+	<div class="notification">
+        <div class="notification-content">
+            <i class="fas fa-solid fa-check check"></i>
+            <div class="message">
+                <span class="text text-1">Success</span>
+                <span class="text text-2">Đã thêm vào giỏ hàng</span>
+            </div>
+        </div>
+        <i class="fa-solid fa-xmark close"></i>
+        <div class="progress"></div>
+    </div>
+   <!--  đến đây -->
+   
 		<div class="small-container_ds prd_dt">
 			<div class="row_ds">
 				<div class="col-2_ds">
@@ -26,8 +41,11 @@
 						<option value="">1</option>
 						<option value="">1</option>
 						<option value="">1</option>
-					</select> <input type="number" value="1"> <a href="#" style="text-decoration: none;" class="btn_ds">Thêm
-						vào giỏ hàng</a>
+					</select> <input type="number" value="1"> 
+				 <a th:attr = "ng-click=@{|cart.add('${productsDetail.productId}')|}" 
+					href="#" style="text-decoration: none;" class="btn_ds notificationBtn">Thêm
+						vào giỏ hàng</a> 
+						
 					<h3>Thông tin sản phẩm</h3>
 					<p>Qua những lần chạm đầu tiên trên chiếc Reno8 T 5G thì mình
 						thấy đây là một chiếc điện thoại có độ hoàn thiện khá tốt, máy
@@ -37,6 +55,8 @@
 				</div>
 			</div>
 		</div>
+
+		<h2 class="title_products">Sản phẩm liên quan</h2>
 
 		<div class="small-container_ds">
 			<div class="row_ds">
