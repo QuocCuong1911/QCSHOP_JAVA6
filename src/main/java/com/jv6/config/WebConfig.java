@@ -24,4 +24,6 @@ public class WebConfig implements WebMvcConfigurer {
     	registry.addInterceptor(globall).addPathPatterns("/**")
     	.excludePathPatterns("/rest/**", "/admin/**", "/assets/**");
     }
+    
+    
 }
