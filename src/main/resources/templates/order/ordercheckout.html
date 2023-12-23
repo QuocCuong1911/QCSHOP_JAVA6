@@ -3,10 +3,103 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
 <main>
-    <h1>order checkout</h1>
+	<div th:replace = "~{/cart/view :: shopping_cart}"></div>
+    <div class="payment-container">
+        <form action="" class = "payment-form">
+            <div class="pm-rw">
+                <div class="col">
+                	<input class = "user-name" type="hidden" th:value="${username}">
+                	<span sec:authentication="name" id = "user-name"></span>
+                    <h3 class="title">
+                        Order | Mã HD : <label id = "order-id" th:text ="${orderId}"></label>
+                    </h3>
+
+                    <div class="inputBox">
+                        <span>Họ tên : </span>
+                        <input type="text" th:value="${nameUser}" placeholder="Name" name="" id="">
+                    </div>
+                    <div class="inputBox">
+                        <span>Số điện thoại : </span>
+                        <input type="text" placeholder="Phone number" name="" id="">
+                    </div>
+                    <div class="inputBox">
+                        <span>Địa chỉ nhận hàng</span>
+                        <input ng-model="order.address" type="text" placeholder="Address" name="" id="">
+                    </div>
+                    <div class="inputBox">
+                        <span>Ngày tạo đơn : </span>  
+                        <input type="text" th:value="${createDate}" name="" id="create-Date" readonly="readonly">
+                      
+                    </div>
+                    <div class="flex">
+                        <div class="inputBox">
+                            <span>State : </span>
+                            <input type="text" placeholder="Name" name="" id="">
+                        </div>
+                        <div class="inputBox">
+                            <span>Zip code : </span>
+                            <input type="text" placeholder="Name" name="" id="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <h3 class="title">
+                        payment-container
+                    </h3>
+
+                    <div class="inputBox ">
+                        <span>Hình thức thanh toán: </span>
+                        <div class="payment_method">
+                            <div class="directly">
+                                <input type="radio" name="payment_method" id="directly" checked
+                                    onclick="disableInputs(true)">
+                                <label for="directly">Trực tiếp</label>
+
+                            </div>
+                            <div class="transfer">
+                                <input type="radio" name="payment_method" id="transfer" onclick="disableInputs(false)">
+                                <label for="transfer">Chuyển khoản</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inputBox">
+                        <span class="transfer-disabled disabled">Thẻ được chấp nhận : </span>
+                        <img class=" transfer-disabled disabled" th:src="@{/static/img/web_img/card_img.png}" alt="">
+                    </div>
+                    <div class="inputBox">
+                        <span class="transfer-disabled disabled">Tên trên thẻ : </span>
+                        <input type="text" placeholder="Họ và tên" name="" id="" class="transfer-disabled disabled">
+                    </div>
+
+                    <div class="inputBox">
+                        <span class="transfer-disabled disabled"> Số thẻ tín dụng : </span>
+                        <input type="text" placeholder="Số thẻ của bạn" name="" id=""
+                            class="transfer-disabled disabled number-check">
+                    </div>
+                    <div class="flex">
+                        <div class="inputBox">
+                            <span class="transfer-disabled disabled">HSD : </span>
+                            <input type="date" placeholder="Thời gian hết hạn của thẻ" name="" id=""
+                                class="transfer-disabled disabled">
+                        </div>
+                        <div class="inputBox">
+                            <span class="transfer-disabled disabled">CVV : </span>
+                            <input type="text" maxlength="3" placeholder="3 số cuối của thẻ" name="" id=""
+                                class="transfer-disabled disabled number-check">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="button" ng-click ="order.purchase()" value="Proceed to checkout" class="submit-btn" name="" id="">
+        </form>
+    </div>
 </main>
+
 </body>
 </html>

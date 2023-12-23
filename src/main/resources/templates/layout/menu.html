@@ -1,7 +1,40 @@
 <ul class="nav_links">
-    <li><a class="cta cart_sp" th:href="@{|/product/home|}"><i class="fa-solid fa-house"></i>Trang chủ</a></li>
-    <li><a class="cta cart_sp" href="#"><i class="fa-solid fa-phone"></i></i>Liên hệ</a></li>
-    <li><a class="cta cart_sp" href="#"><i class="fa-solid fa-user"></i>Tài khoản</a></li>
-   <li><a class="cta cart_sp" th:href="@{|/qcshop/cart/view|}"><i class="fa-solid fa-cart-shopping"></i>Giỏ Hàng <span
-                    class="cart_count">{{cart.getCount()}}</span></a></li>
+	<li><a class="cta cart_sp" th:href="@{|/qcshop/product/home|}"><i
+			class="fa-solid fa-house"></i>Trang chủ</a></li>
+
+	<th:block
+		th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}">
+		<li><a class="cta cart_sp" th:href="@{/order/list}"><i
+				class="fa-regular fa-rectangle-list"></i> Your Order</a></li>
+
+	</th:block>
+
+	<th:block
+		th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+		<li><a class="cta cart_sp" th:href="@{/qcshop/login}"><i
+				class="fa-solid fa-screwdriver-wrench"></i> ADMIN</a></li>
+
+	</th:block>
+
+	<th:block
+		th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_USER'')')}">
+		<li><a class="cta cart_sp" href="#"><i
+				class="fa-solid fa-user"></i>Tài khoản</a></li>
+
+		<li><a class="cta cart_sp" th:href="@{/qcshop/logout}"><i
+				class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out</a></li>
+	</th:block>
+
+	<th:block
+		th:if="${#authorization.expression('hasRole(''ROLE_ANONYMOUS'')')}">
+		<li><a class="cta cart_sp" th:href="@{/qcshop/login}"><i
+				class="fa-solid fa-right-to-bracket"></i> Sign In</a></li>
+	</th:block>
+
+	<li><a class="cta cart_sp" th:href="@{|/qcshop/cart/view|}"><i
+			class="fa-solid fa-cart-shopping"></i>Giỏ Hàng <span
+			class="cart_count">{{cart.getCount()}}</span></a></li>
+			
+	<li><a class="cta cart_sp" href="#"><i
+			class="fa-solid fa-phone"></i></i> Liên hệ</a></li>
 </ul>

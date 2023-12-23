@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="/static/css/notification.css">
 	<link rel="stylesheet" href="/static/css/footer.css">
 	<link rel="stylesheet" href="/static/css/shoppingcart.css">
+	<link rel="stylesheet" href="/static/css/payment.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
 		integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -121,7 +122,7 @@
 		<article class="col-sm-9 m-0 p-0">
 			<!-- sản phẩm -->
 			<nav>
-				<div th:replace="/layout/menu.html"></div>
+				<div th:replace="~{/layout/menu.html}"></div>
 			</nav>
 			<div th:replace="${main}"></div>
 		</article>
@@ -129,7 +130,7 @@
 		<!-- <aside></aside> -->
 		<aside class="col-sm-3 bg-info-subtle m-0 p-0 ">
 
-			<div th:replace="/layout/category.html"></div>
+			<div th:replace="~{/layout/category.html}"></div>
 			<!-- <div class="login_form">
                 <div class="form_btn">
                     <span onclick="login()">Login</span>
@@ -161,7 +162,7 @@
 	</div>
 	<!-- <footer></footer> -->
 	<footer class="footer-ds">
-		<div th:replace="/layout/footer.html"></div>
+		<div th:replace="~{/layout/footer.html}"></div>
 	</footer>
 
 	<script>
@@ -195,7 +196,7 @@
 							this.items_list.push(resp.data);
 							this.saveToLocalStorage();
 							console.log("items_list check 1 : " + $scope.cart.items_list.length)
-
+							console.log($scope.cart.items_list)
 						})
 					}
 					console.log("items_list check 2 : " + $scope.cart.items_list.length)
@@ -211,6 +212,7 @@
 				getCount() {
 					var count = this.items_list.map(item => item.qty).reduce((total, qty) => total += qty, 0);
 					// console.log(count);
+					
 					return count;
 				},
 
@@ -249,7 +251,31 @@
 
 			$scope.cart.initialize();
 
-
+			//Checkout
+			
+			$scope.order = {
+				orderId : $("#order-id").text(),
+				createDate: $("#create-Date").val(),
+				address: "",
+				account : {
+					username: $("#user-name").text()
+				},
+				get orderDetail(){
+					return $scope.cart.items_list.map(item => {
+						return{
+							productId:{
+								id: item.productId
+							},
+							price: item.price,
+							quantity: item.qty
+						}
+					})
+				},
+				purchase(){
+					var order = angular.copy(this)
+					console.log(order)
+				}
+			}			
 		})
 
 	</script>
@@ -258,6 +284,7 @@
 	<script src="/static/js/pagination.js"></script>
 	<script src="/static/js/notification.js"></script>
 	<script src="/static/js/formatprice.js"></script>
+	<script src="/static/js/payment.js"></script>
 	<!-- <script src="/static/js/app_1.js"></script> -->
 </body>
 

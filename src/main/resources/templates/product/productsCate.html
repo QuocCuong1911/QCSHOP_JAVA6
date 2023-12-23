@@ -14,7 +14,7 @@
 			<div class="row_ds">
 				<div th:each="pr : ${listProductsCate}" class="col-4_ds">
 					<a class="no-underline" style="text-decoration: none; color: #555;"
-						th:href="@{|/product/detail/${pr.productId}|}"> <img
+						th:href="@{|/qcshop/product/detail/${pr.productId}|}"> <img
 							th:src="@{|/static/img/product_img/${pr.photo}|}" alt="">
 						<h4>[[${pr.productName}]]</h4>
 						<div class="rating">
@@ -61,7 +61,7 @@
 				onclick="backBtn()"> <i class="fa-solid fa-arrow-left"></i>Prev</button>
 				<ul class="number_page">
 					<span th:each="i: ${#numbers.sequence(1, totalPage)}">
-						<a class="link" th:if="${currentPage != i }" th:value="${i}" th:href="@{|/products/listcate/${cateId}/${i}|}">
+						<a class="link" th:if="${currentPage != i }" th:value="${i}" th:href="@{|/qcshop/products/listcate/${cateId}/${i}|}">
 							<li onclick="activeLink()">[[${i}]]</li>
 							</a>
 						<li class="link active" th:unless="${currentPage != i}">[[${i}]]</li> 

@@ -8,7 +8,11 @@ import java.util.stream.Collectors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.jv6.dto.AccountDTO;
 import com.jv6.entity.Accounts;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,12 +27,19 @@ public class UserInfoToUserDetail implements UserDetails{
 	private String password;
 	private List<GrantedAuthority> authorities;
 	
+	
 	public  UserInfoToUserDetail(Accounts acc) {
 		username = acc.getUsername();
 		
 		password = acc.getPass();
+
+		String roles = acc.getListAuthorities().stream()
+			    .map(user -> user.getRole().getId())
+			    .collect(Collectors.joining(","));
 		
-		
+		authorities = Arrays.stream(roles.split(","))
+			    .map(SimpleGrantedAuthority::new)
+			    .collect(Collectors.toList());
 	}
 	
 	@Override
@@ -72,6 +83,5 @@ public class UserInfoToUserDetail implements UserDetails{
 		// TODO Auto-generated method stub
 		return true;
 	}
-	
-	
+		
 }

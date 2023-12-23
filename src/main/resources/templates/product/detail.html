@@ -62,8 +62,8 @@
 			<div class="row_ds">
 				<div th:each="pr : ${listProductsRelated}" class="col-4_ds">
 					<a class="no-underline" style="text-decoration: none; color: #555;"
-						th:href="@{|/product/detail/${pr.productId}|}"> <img
-						th:href="@{|/product/detail/${pr.productId}|}"
+						th:href="@{|/qcshop/product/detail/${pr.productId}|}"> <img
+						th:href="@{|/qcshop/product/detail/${pr.productId}|}"
 						th:src="@{|/static/img/product_img/${pr.photo}|}" alt="">
 						<h4>[[${pr.productName}]]</h4>
 						<div class="rating">

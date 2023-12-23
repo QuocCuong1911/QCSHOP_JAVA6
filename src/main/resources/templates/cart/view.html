@@ -8,7 +8,7 @@
 <body>
 	<main>
 		<main>
-			<div class="small-container cart-page">
+			<div class="small-container cart-page" th:fragment = "shopping_cart">
 				<table>
 					<tr>
 						<th>Product</th>
@@ -27,7 +27,7 @@
 									<p>{{pr.productName}}</p>
 									<!-- giá sp -->
 									<p class="format-price">Price: {{pr.price}}</p>
-					
+
 									<!-- xóa -->
 									<a ng-click="cart.remove(pr.productId)" href="">Remove</a>
 								</div>
@@ -35,7 +35,8 @@
 							</div>
 						</td>
 						<!-- số lương -->
-						<td><input ng-change ="cart.saveToLocalStorage();" ng-model="pr.qty" type="number" min="1"></td>
+						<td><input ng-change="cart.saveToLocalStorage();"
+							ng-model="pr.qty" type="number" min="1"></td>
 						<!-- thành tiền -->
 						<td><p class="priceconvert">{{cart.convertToVND(pr.qty*pr.price)}}</p></td>
 					</tr>
@@ -60,9 +61,11 @@
 							<td><button ng-click="cart.clear()" class="btn btn-warning">
 									<i class="fa-solid fa-delete-left"></i> Clear
 								</button></td>
-							<td><button th:src="@{/order/checkout}" class="btn btn-success">
-									<i class="fa-solid fa-money-check-dollar"></i> Checkout
-								</button></td>
+							<td><a th:href="@{/order/checkout}">
+									<button class="btn btn-success">
+										<i class="fa-solid fa-money-check-dollar"></i> Checkout
+									</button>
+							</a></td>
 						</tr>
 					</table>
 				</div>

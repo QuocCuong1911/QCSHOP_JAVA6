@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -29,6 +30,6 @@ public class Roles implements Serializable{
 	String nameRole;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "role")
+	@OneToMany(mappedBy = "role", fetch = FetchType.EAGER)
 	List<Authorities> listAuthorities;
 }
