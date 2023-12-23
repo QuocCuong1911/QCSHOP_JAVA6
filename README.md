@@ -1,4 +1,4 @@
--- XÂY DỰNG WEBSITE BÁN HÀNG ĐIỆN TỬ QC-SHOP --
+-- XÂY DỰNG WEBSITE BÁN HÀNG ĐIỆN TỬ QC-SHOP --  
 --  NGÔ QUỐC CƯỜNG --  
 -----------------------------------------------------------------
 
